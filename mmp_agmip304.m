@@ -1,4 +1,4 @@
-%		                  mmp_agmip304
+%		      mmp_agmip304
 %
 %  This script creates line plots of global warming levels
 %  against global production from GGCMI-3 simulations. This
@@ -30,8 +30,8 @@
 %
 %
 %		                             author: Meridel Phillips
-%                                mmp2192@columbia.edu
-%				                         date:	8/17/2022
+%                                            mmp2192@columbia.edu
+%				             date:  8/17/2022
 %
 function mmp_agmip304();
 %--------------------------------------------------
