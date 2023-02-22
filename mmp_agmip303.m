@@ -1,4 +1,4 @@
-%		                  mmp_agmip303
+%		      mmp_agmip303
 %
 %  This script creates production change maps from GGCMI
 %  Phase 3 simulations for each GCM, global warming level,
@@ -19,8 +19,8 @@
 %
 %
 %		                             author: Meridel Phillips
-%                                mmp2192@columbia.edu
-%				                         date:	8/16/2022
+%                                            mmp2192@columbia.edu
+%				             date:  8/16/2022
 %
 function mmp_agmip303();
 %--------------------------------------------------
