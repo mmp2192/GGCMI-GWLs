@@ -1,4 +1,4 @@
-%		                mmp_agmip305
+%		    mmp_agmip305
 %
 %  This script creates maps showing the shape of the
 %  production change curve for each global warming
@@ -63,8 +63,8 @@
 %
 %
 %		                             author: Meridel Phillips
-%                                mmp2192@columbia.edu
-%				                         date:	8/17/2022
+%                                            mmp2192@columbia.edu
+%				             date:  8/17/2022
 %
 function mmp_agmip305();
 %--------------------------------------------------
@@ -701,119 +701,6 @@ for xcrop=1:length(croptypes),
    close all
 
 end;
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% TEMPORARY
-%%% show cells with double or triple reversal
-
-patterns = ones(9,3)*NaN;
-patterns(1,:) = [0 0 0.8];
-patterns(2,:) = [0.2 0.6 1];
-patterns(3,:) = [0.2 0.8 0.6];
-patterns(4,:) = [0.6 0 0.6];
-patterns(5,:) = [0.8 0.6 1];
-patterns(6,:) = [1 0.4 0.6];
-patterns(7,:) = [0.8 0 0];
-patterns(8,:) = [1 0.6 0.2];
-patterns(9,:) = [0.87 0.87 0.27];
-
-for xcrop=1:length(croptypes),
-   thiscrop = croptypes{xcrop};
-   thiscropnice = croptypesnice{xcrop};
-
-   medianmap = importdata(['median_total_' thiscrop '_production_ssp585_processed.mat']);
-
-   categories = lat*NaN;
-
-   for ii=1:size(lon,2),
-      for jj=1:size(lat,1),
-
-         %%% maximum GWL3.5, not using GWL4
-
-         point = squeeze(medianmap(jj,ii,1:7));
-         point(isnan(point)) = [];
-         point(point == Inf) = [];
-         point(point == -Inf) = [];
-         if (length(point)==7),
-
-
-         % peak to dip to peak
-         numabovestart = length(find(point>point(1)));
-         abovestart = find(point>point(1));
-         if (numabovestart>1),
-            subpoint = squeeze(point(abovestart(1):end));
-            belowsubpoint = find(subpoint<subpoint(1));
-            numbelowsubpoint = length(find(subpoint<subpoint(1)));
-            if (numbelowsubpoint>1),
-               subsubpoint = squeeze(subpoint(belowsubpoint(1):end));
-               abovesubsubpoint = find(subsubpoint>subsubpoint(1));
-               numabovesubsubpoint = length(find(subsubpoint>subsubpoint(1)));
-               if (numabovesubsubpoint>1),
-                  % peak to dip
-                  categories(jj,ii) = 1;
-                  disp([num2str(jj) ' ' num2str(ii)])
-                  subsubsubpoint = squeeze(subsubpoint(abovesubsubpoint(1):end));
-                  belowsubsubsubpoint = find(subsubsubpoint<subsubsubpoint(1));
-                  numbelowsubsubsubpoint = length(find(subsubsubpoint<subsubsubpoint(1)));
-                  if (numbelowsubsubsubpoint>1),
-                     % peak to dip to peak
-                     categories(jj,ii) = 3;
-                     %disp([num2str(jj) ' ' num2str(ii)])
-                  end;
-               end;
-            end;
-         end;
-
-            % dip to peak to dip
-            numbelowstart = length(find(point<point(1)));
-            belowstart = find(point<point(1));
-            if (numbelowstart>1),
-               subpoint = squeeze(point(belowstart(1):end));
-               abovesubpoint = find(subpoint>subpoint(1));
-               numabovesubpoint = length(find(subpoint>subpoint(1)));
-               if (numabovesubpoint>1),
-                  subsubpoint = squeeze(subpoint(abovesubpoint(1):end));
-                  belowsubsubpoint = find(subsubpoint<subsubpoint(1));
-                  numbelowsubsubpoint = length(find(subsubpoint<subsubpoint(1)));
-                  if (numbelowsubsubpoint>1),
-                     % dip to peak
-                     categories(jj,ii) = 2;
-                     %disp([num2str(jj) ' ' num2str(ii)])
-                     subsubsubpoint = squeeze(subsubpoint(belowsubsubpoint(1):end));
-                     abovesubsubsubpoint = find(subsubsubpoint>subsubsubpoint(1));
-                     numabovesubsubsubpoint = length(find(subsubsubpoint>subsubsubpoint(1)));
-                     if (numabovesubsubsubpoint>1),
-                        % dip to peak to dip
-                        categories(jj,ii) = 4;
-                        %disp([num2str(jj) ' ' num2str(ii)])
-                     end;
-
-                  end;
-               end;
-            end;
-
-         end; % length
-      end;  % jj
-   end;   % ii
-
-   f = figure; colormap(patterns);
-   acr_pcolormapr5(categories,lat,lon,[-60 90],[-180 180],[0.5 4.5]);
-   ax2 = gca;
-   colorbar('delete');
-   cb2 = colorbar('peer',ax2,'southoutside');
-   set(cb2,'xtick',[1:4],'xticklabel',{'Peak to Dip','Dip to Peak','Peak to Dip to Peak','Dip to Peak to Dip'});
-   print(f,'-dpng',['/home/mmphill2/figures/GGCMI/reversals_' thiscrop '.png']);
-   close all
-
-end;
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%  end TEMPORARY
-
-
-
 
 %%%%%%% central Julian Date of growing seasons
 %%%%%%% use same processed crop masks
