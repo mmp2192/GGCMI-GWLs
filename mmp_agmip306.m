@@ -1,4 +1,4 @@
-%		               mmp_agmip306
+%		          mmp_agmip306
 %
 %  This script creates crop season temperature and
 %  precipitation change maps for each GCM, SSP-RCP
@@ -26,8 +26,8 @@
 %
 %
 %		                             author: Meridel Phillips
-%                                mmp2192@columbia.edu
-%				                         date:	8/18/2022
+%                                  mmp2192@columbia.edu
+%				                       date:	8/18/2022
 %
 function mmp_agmip306();
 %--------------------------------------------------
