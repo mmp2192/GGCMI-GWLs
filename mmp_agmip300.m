@@ -1,4 +1,4 @@
-%		                  mmp_agmip300
+%		              mmp_agmip300
 %
 %  This script converts GGCMI Phase 3 pre-processed
 %  outputs (adjusted harvest dates, combined crop seasons,
@@ -15,8 +15,8 @@
 %
 %
 %		                             author: Meridel Phillips
-%                                mmp2192@columbia.edu
-%				                         date:	8/11/2022
+%                                  mmp2192@columbia.edu
+%				                       date:	8/11/2022
 %
 function mmp_agmip300();
 %--------------------------------------------------
