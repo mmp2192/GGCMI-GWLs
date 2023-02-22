@@ -1,4 +1,4 @@
-%		                 mmp_agmip302
+%		       mmp_agmip302
 %
 %  This script calculates absolute yields from GGCMI
 %  Phase 3 pre-processed outputs (adjusted harvest dates,
@@ -15,8 +15,8 @@
 %
 %
 %		                             author: Meridel Phillips
-%                                mmp2192@columbia.edu
-%				                         date:	8/15/2022
+%                                            mmp2192@columbia.edu
+%				             date:  8/15/2022
 %
 function mmp_agmip302();
 %--------------------------------------------------
