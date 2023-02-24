@@ -1,5 +1,5 @@
 # GGCMI-GWLs
-[![DOI](https://sandbox.zenodo.org/badge/604862065.svg)](https://sandbox.zenodo.org/badge/latestdoi/604862065)
+[![DOI](https://zenodo.org/badge/604862065.svg)](https://zenodo.org/badge/latestdoi/604862065)
 
 This repository contains Matlab scripts for the data analysis behind the manuscript "Patterns of Future Climate Risks for Agricultural Production By Global Warming Levels" by Alex C. Ruane et al. These scripts use crop model data from the Agricultural Model Intercomparison and Improvement Project (AgMIP) Global Gridded Crop Model Intercomparison (GGCMI) project. 
 
